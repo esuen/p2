@@ -138,7 +138,7 @@ type replicationController struct {
 	scheduler     Scheduler
 	podApplicator Labeler
 	alerter       alerting.Alerter
-	healthChecker checker.ConsulHealthChecker
+	healthChecker checker.HealthChecker
 
 	nodeTransfer nodeTransfer
 
@@ -166,7 +166,7 @@ func New(
 	podApplicator Labeler,
 	logger logging.Logger,
 	alerter alerting.Alerter,
-	healthChecker checker.ConsulHealthChecker,
+	healthChecker checker.HealthChecker,
 	artifactRegistry artifact.Registry,
 ) ReplicationController {
 	if alerter == nil {
