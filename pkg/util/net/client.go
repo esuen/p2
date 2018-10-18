@@ -1,6 +1,7 @@
 package net
 
 import (
+	"fmt"
 	"net/http"
 )
 
@@ -16,6 +17,8 @@ func (ht headerTransport) RoundTrip(r *http.Request) (*http.Response, error) {
 	for k, v := range ht.extras {
 		r.Header.Set(k, v)
 	}
+	fmt.Println("Inside headerTransport RoundTrip")
+	fmt.Printf("ht.extras: %s\n", ht.extras)
 	return ht.inner.RoundTrip(r)
 }
 
